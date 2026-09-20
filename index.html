@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioVita — Биоактивные комплексы витаминов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e2b3c;
+            background: #f8fbf5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,40,20,0.06);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.85);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #1e4a3b;
+        }
+        .logo span {
+            color: #7cb342;
+            font-weight: 300;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2d4055;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #5b8c5a;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3a7d5a;
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 6px 18px rgba(58, 125, 90, 0.25);
+        }
+        .btn:hover {
+            background: #2b664a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(58, 125, 90, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #3a7d5a;
+            border: 2px solid #3a7d5a;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #3a7d5a;
+            color: white;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 26px;
+            line-height: 1;
+            padding: 4px 10px;
+            border-radius: 40px;
+            background: #f0f7f0;
+            transition: background 0.2s;
+            border: none;
+            font-family: inherit;
+        }
+        .cart-icon:hover {
+            background: #dce8dc;
+        }
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #d9534f;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 22px;
+        }
+
+        .hero {
+            padding: 70px 0 50px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            flex: 1 1 400px;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+        .hero-text h1 i {
+            color: #3a7d5a;
+            font-style: normal;
+            background: #e6f0e6;
+            padding: 0 10px;
+            border-radius: 30px;
+        }
+        .hero-text p {
+            font-size: 19px;
+            color: #3f4f5f;
+            margin: 25px 0 35px;
+            max-width: 500px;
+        }
+        .hero-image {
+            flex: 1 1 300px;
+            background: #dce9d3;
+            border-radius: 60px 60px 60px 20px;
+            padding: 40px 20px;
+            text-align: center;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: radial-gradient(circle at 20% 30%, #c6ddbb, #b2cfaa);
+            box-shadow: 0 30px 40px -20px rgba(40,80,50,0.3);
+        }
+        .hero-image .big-icon {
+            font-size: 92px;
+            line-height: 1;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
+        }
+        .hero-image p {
+            font-weight: 600;
+            color: #1a3a2b;
+            font-size: 20px;
+            margin-top: 6px;
+        }
+
+        .features {
+            padding: 60px 0 40px;
+        }
+        .section-title {
+            font-size: 34px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .section-sub {
+            text-align: center;
+            color: #4d637a;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 30px;
+        }
+        .feat-item {
+            background: white;
+            border-radius: 32px;
+            padding: 32px 22px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,20,0,0.04);
+            transition: all 0.25s;
+            border: 1px solid rgba(120, 160, 120, 0.15);
+        }
+        .feat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(40, 80, 50, 0.08);
+        }
+        .feat-icon {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+        .feat-item h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+        .feat-item p {
+            color: #556b7c;
+            font-size: 15px;
+        }
+
+        .products {
+            padding: 60px 0;
+        }
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px 30px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 40px;
+            padding: 30px 24px 34px;
+            box-shadow: 0 10px 30px rgba(0,20,0,0.04);
+            transition: all 0.3s;
+            border: 1px solid #ebf2e8;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 480px;
+        }
+        .product-card:hover {
+            box-shadow: 0 28px 48px -12px rgba(50,100,60,0.20);
+            transform: scale(1.01);
+        }
+        .product-card .emoji-big {
+            font-size: 58px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .product-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .product-card .sub {
+            color: #3a7d5a;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 2px 0 10px;
+        }
+        .product-card .desc {
+            color: #3f5567;
+            font-size: 15px;
+            margin: 0 0 16px 0;
+            flex: 1;
+            line-height: 1.5;
+        }
+        .product-card .price {
+            font-weight: 700;
+            font-size: 26px;
+            color: #1a3a2b;
+            margin-top: auto;
+        }
+        .product-card .price small {
+            font-weight: 400;
+            font-size: 16px;
+            color: #6b7f8f;
+            margin-left: 6px;
+        }
+        .product-card .btn {
+            margin-top: 16px;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            flex-shrink: 0;
+        }
+
+        .science {
+            background: #e7f0e3;
+            border-radius: 60px;
+            padding: 50px 40px;
+            margin: 30px 0 50px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .science-text {
+            flex: 2;
+        }
+        .science-text h2 {
+            font-size: 32px;
+            font-weight: 600;
+        }
+        .science-text p {
+            font-size: 17px;
+            color: #1e3b30;
+            max-width: 550px;
+            margin-top: 12px;
+        }
+        .science-badge {
+            flex: 1;
+            background: white;
+            border-radius: 100px;
+            padding: 24px 32px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .science-badge .number {
+            font-size: 44px;
+            font-weight: 700;
+            color: #2b664a;
+        }
+
+        .about {
+            background: white;
+            border-radius: 60px;
+            padding: 50px 40px;
+            margin: 30px 0 50px;
+            border: 1px solid #e0ece0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .about-item {
+            text-align: center;
+            padding: 20px;
+        }
+        .about-item .num {
+            font-size: 40px;
+            font-weight: 700;
+            color: #3a7d5a;
+        }
+        .about-item p {
+            color: #4d637a;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .cta-section {
+            background: #1e3b30;
+            color: white;
+            border-radius: 60px;
+            padding: 50px 40px;
+            margin: 40px 0 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cta-left h2 {
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .cta-left p {
+            opacity: 0.8;
+            margin: 8px 0 4px;
+        }
+        .timer {
+            display: flex;
+            gap: 16px;
+            font-size: 36px;
+            font-weight: 700;
+            background: rgba(255,255,255,0.08);
+            padding: 12px 28px;
+            border-radius: 80px;
+            backdrop-filter: blur(4px);
+            margin: 16px 0;
+        }
+        .timer span {
+            background: #2b5543;
+            padding: 4px 12px;
+            border-radius: 40px;
+            min-width: 60px;
+            text-align: center;
+        }
+        .cta-right .btn {
+            background: #f5b042;
+            color: #1e2b1e;
+            box-shadow: 0 6px 18px rgba(245, 176, 66, 0.4);
+        }
+        .cta-right .btn:hover {
+            background: #f0a230;
+        }
+
+        .calc-wrap {
+            background: white;
+            border-radius: 48px;
+            padding: 40px 36px;
+            margin: 20px 0 60px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.02);
+            border: 1px solid #e0ece0;
+        }
+        .calc-wrap h3 {
+            font-size: 26px;
+            font-weight: 600;
+        }
+        .calc-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: end;
+            gap: 24px 40px;
+            margin-top: 20px;
+        }
+        .calc-row label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #2f4d3c;
+        }
+        .calc-row input, .calc-row select {
+            padding: 12px 18px;
+            border-radius: 60px;
+            border: 1px solid #cfdfcf;
+            font-size: 16px;
+            background: #f6faf6;
+            width: 180px;
+        }
+        .calc-row .btn {
+            padding: 12px 34px;
+        }
+        #calcResult {
+            margin-top: 22px;
+            font-size: 18px;
+            background: #eaf3ea;
+            padding: 16px 24px;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: white;
+            max-width: 620px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 48px;
+            padding: 40px 36px;
+            box-shadow: 0 40px 60px rgba(0,0,0,0.3);
+            animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .modal-header h2 {
+            font-size: 26px;
+            font-weight: 700;
+        }
+        .modal-close {
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #6b7f8f;
+            transition: 0.2s;
+            padding: 0 8px;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: #1e2b3c;
+            transform: rotate(90deg);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #ecf3ec;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .cart-item-price {
+            color: #3a7d5a;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .cart-item-remove {
+            background: #fee9e7;
+            border: none;
+            border-radius: 40px;
+            padding: 6px 16px;
+            color: #c0392b;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+        .cart-item-remove:hover {
+            background: #fdd5d0;
+        }
+
+        /* === НОВЫЙ БЛОК СО СКИДКОЙ В КОРЗИНЕ === */
+        .cart-discount {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #d9534f;
+            font-weight: 600;
+            font-size: 17px;
+            border-top: 1px dashed #e0ece0;
+            margin-top: 8px;
+        }
+        .cart-discount .green {
+            color: #3a7d5a;
+        }
+
+        .cart-total {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 8px 0 10px;
+            text-align: right;
+            border-top: 2px solid #e0ece0;
+            padding-top: 16px;
+        }
+        .cart-total .old-price {
+            font-weight: 400;
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 12px;
+        }
+        .cart-total .discount-badge {
+            background: #d9534f;
+            color: white;
+            font-size: 14px;
+            padding: 2px 14px;
+            border-radius: 40px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .order-form {
+            margin-top: 24px;
+            border-top: 2px solid #e0ece0;
+            padding-top: 24px;
+        }
+        .order-form h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #2f4d3c;
+            margin-bottom: 4px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 60px;
+            border: 1px solid #cfdfcf;
+            font-size: 16px;
+            background: #f6faf6;
+            transition: 0.2s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #3a7d5a;
+            box-shadow: 0 0 0 3px rgba(58,125,90,0.15);
+        }
+        .form-group .hint {
+            font-size: 12px;
+            color: #8a9ca8;
+            margin-top: 4px;
+        }
+        .order-form .btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+            color: #6b7f8f;
+            font-size: 18px;
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e3b30;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            z-index: 2000;
+            font-size: 16px;
+            max-width: 90%;
+            text-align: center;
+            animation: modalIn 0.3s ease;
+        }
+
+        footer {
+            background: #0f241d;
+            color: #b6cdc2;
+            padding: 40px 0 30px;
+            border-radius: 40px 40px 0 0;
+            margin-top: 40px;
+        }
+        footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        footer a {
+            color: #ccded3;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover { color: white; }
+        footer .footer-center {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+            .hero-text h1 { font-size: 34px; }
+            .header-inner { flex-direction: column; gap: 12px; }
+            nav { justify-content: center; }
+            .science, .cta-section, .about { padding: 32px 20px; }
+            .timer { font-size: 28px; flex-wrap: wrap; justify-content: center; }
+            .cta-left, .cta-right { width: 100%; text-align: center; }
+            .calc-row input { width: 100%; }
+            .modal { padding: 28px 20px; }
+            .product-card { min-height: 420px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">Bio<span>Vita</span></div>
+        <nav>
+            <a href="#products">Комплексы</a>
+            <a href="#science">Наука</a>
+            <a href="#about">О нас</a>
+            <a href="#calc">Калькулятор</a>
+            <a href="#cta" class="btn btn-outline" style="padding: 8px 22px;">Акция</a>
+            <button class="cart-icon" id="cartOpenBtn">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Биоактивные <i>витамины</i> для твоей энергии</h1>
+                <p>Комплексы с максимальной усвояемостью. Натуральные кофакторы, хелатные формы и фитонутриенты.</p>
+                <a href="#products" class="btn">Выбрать комплекс →</a>
+            </div>
+            <div class="hero-image">
+                <div class="big-icon">🌿⚡</div>
+                <p>100% биоактивность</p>
+                <span style="font-size: 14px; opacity:0.8;">без синтетических наполнителей</span>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Почему BioVita?</h2>
+            <p class="section-sub">Мы используем только те формы витаминов, которые организм распознает как «свои».</p>
+            <div class="grid-3">
+                <div class="feat-item"><div class="feat-icon">🧬</div><h3>Хелатные формы</h3><p>Минералы в аминокислотной оболочке для усвоения до 98%</p></div>
+                <div class="feat-item"><div class="feat-icon">🍃</div><h3>Растительные кофакторы</h3><p>Экстракты зеленого чая, куркумы и черного перца для синергии</p></div>
+                <div class="feat-item"><div class="feat-icon">⏳</div><h3>Пролонгированное действие</h3><p>Мультифазное высвобождение в течение 8–10 часов</p></div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <h2 class="section-title">Наши комплексы</h2>
+            <p class="section-sub">Разработаны под разные задачи: от иммунитета до активного долголетия.</p>
+            <div class="product-cards">
+                <div class="product-card">
+                    <span class="emoji-big">🌞</span>
+                    <h3>Energy+</h3>
+                    <div class="sub">Биоактивный B-комплекс</div>
+                    <p class="desc">B1, B2, B6, B12 в коферментной форме + магний и L-теанин для бодрости без стресса.</p>
+                    <div class="price">3 290 ₽ <small>/ 60 капс</small></div>
+                    <button class="btn add-to-cart-btn" data-id="1" data-name="Energy+" data-price="3290">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <span class="emoji-big">🛡️</span>
+                    <h3>Immune Shield</h3>
+                    <div class="sub">Цинк + C + D3 + селен</div>
+                    <p class="desc">Синергия цинка пиколината, витамина С из ацеролы и D3 из лишайника. Для защиты.</p>
+                    <div class="price">4 190 ₽ <small>/ 60 капс</small></div>
+                    <button class="btn add-to-cart-btn" data-id="2" data-name="Immune Shield" data-price="4190">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <span class="emoji-big">🧠</span>
+                    <h3>Neuro Focus</h3>
+                    <div class="sub">Омега-3 + фосфатидилсерин</div>
+                    <p class="desc">Высококонцентрированная Омега-3 с добавлением витамина Е и экстракта гинкго.</p>
+                    <div class="price">5 490 ₽ <small>/ 90 капс</small></div>
+                    <button class="btn add-to-cart-btn" data-id="3" data-name="Neuro Focus" data-price="5490">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <span class="emoji-big">💪</span>
+                    <h3>Joint Pro</h3>
+                    <div class="sub">Глюкозамин + хондроитин + MSM</div>
+                    <p class="desc">Комплекс для здоровья суставов и связок с витамином С и марганцем для синтеза коллагена.</p>
+                    <div class="price">4 890 ₽ <small>/ 90 капс</small></div>
+                    <button class="btn add-to-cart-btn" data-id="4" data-name="Joint Pro" data-price="4890">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <span class="emoji-big">❤️</span>
+                    <h3>Cardio Support</h3>
+                    <div class="sub">Омега-3 + коэнзим Q10 + магний</div>
+                    <p class="desc">Поддержка сердечно-сосудистой системы с высокими дозами EPA/DHA и антиоксидантами.</p>
+                    <div class="price">5 990 ₽ <small>/ 60 капс</small></div>
+                    <button class="btn add-to-cart-btn" data-id="5" data-name="Cardio Support" data-price="5990">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <span class="emoji-big">🌙</span>
+                    <h3>Sleep & Relax</h3>
+                    <div class="sub">Магний + мелатонин + L-триптофан</div>
+                    <p class="desc">Натуральная формула для глубокого сна и восстановления. Без привыкания.</p>
+                    <div class="price">3 690 ₽ <small>/ 60 капс</small></div>
+                    <button class="btn add-to-cart-btn" data-id="6" data-name="Sleep & Relax" data-price="3690">Добавить в корзину</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="science" class="science">
+            <div class="science-text">
+                <h2>🔬 Научный подход</h2>
+                <p>Каждый компонент проходит клинические исследования на биодоступность. Мы используем <strong>liposomal delivery</strong> и энтеросолюбильные капсулы.</p>
+                <p style="margin-top:6px; font-weight:500;">✔️ Сертификаты GMP, ISO 22000, органическое происхождение.</p>
+            </div>
+            <div class="science-badge">
+                <div class="number">94%</div>
+                <div style="font-weight:500;">усвояемость</div>
+                <div style="font-size:14px; opacity:0.7;">в сравнении с синтетикой</div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title">О нас</h2>
+            <p class="section-sub">Мы создаём биоактивные комплексы, которые действительно работают.</p>
+            <div class="about-grid">
+                <div class="about-item">
+                    <div class="num">12+</div>
+                    <p>лет на рынке нутрициологии</p>
+                </div>
+                <div class="about-item">
+                    <div class="num">50+</div>
+                    <p>научных исследований в основе формул</p>
+                </div>
+                <div class="about-item">
+                    <div class="num">100%</div>
+                    <p>натуральных ингредиентов</p>
+                </div>
+                <div class="about-item">
+                    <div class="num">98%</div>
+                    <p>клиентов рекомендуют нас друзьям</p>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:24px; color:#4d637a; font-size:17px;">
+                🌱 Мы верим, что здоровье начинается с правильного питания и качественных добавок. 
+                Все наши комплексы производятся в Швейцарии и Германии.
+            </p>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <div class="cta-left">
+                <h2>🔥 Скидка 20% на первый заказ</h2>
+                <p>До конца акции осталось:</p>
+                <div class="timer" id="timerDisplay">
+                    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                </div>
+            </div>
+            <div class="cta-right">
+                <button class="btn" id="applyDiscountBtn">🎯 Применить скидку</button>
+                <p style="margin-top:10px; opacity:0.6; font-size:14px;">* скидка действует на первый заказ</p>
+            </div>
+        </section>
+
+        <section id="calc" class="calc-wrap">
+            <h3>🧮 Калькулятор суточной потребности</h3>
+            <p style="color:#3d5c4a;">Узнайте, какой комплекс подходит вам по активности и возрасту.</p>
+            <div class="calc-row">
+                <div><label>Возраст</label><input type="number" id="ageInput" value="32" min="18" max="80"></div>
+                <div><label>Уровень активности</label>
+                    <select id="activitySelect">
+                        <option value="low">Низкий (офис)</option>
+                        <option value="medium" selected>Средний (тренировки 2-3 р/нед)</option>
+                        <option value="high">Высокий (спортсмен)</option>
+                    </select>
+                </div>
+                <div><label>Цель</label>
+                    <select id="goalSelect">
+                        <option value="energy">Энергия & тонус</option>
+                        <option value="immuno">Иммунитет</option>
+                        <option value="brain">Когнитивная функция</option>
+                        <option value="joints">Здоровье суставов</option>
+                        <option value="cardio">Сердце и сосуды</option>
+                        <option value="sleep">Сон и восстановление</option>
+                    </select>
+                </div>
+                <div><button class="btn" id="calcBtn">Рассчитать</button></div>
+            </div>
+            <div id="calcResult">💡 Выберите параметры и нажмите «Рассчитать»</div>
+        </section>
+    </div>
+</main>
+
+<div class="modal-overlay" id="cartModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>🛒 Корзина</h2>
+            <button class="modal-close" id="cartCloseBtn">✕</button>
+        </div>
+        <div id="cartItemsList">
+            <div class="empty-cart">Корзина пуста. Добавьте товары!</div>
+        </div>
+
+        <!-- Блок со скидкой -->
+        <div id="discountBlock" style="display:none;">
+            <div class="cart-discount">
+                <span>🎯 Скидка 20%</span>
+                <span class="green">−<span id="discountAmount">0</span> ₽</span>
+            </div>
+        </div>
+
+        <div id="cartTotalBlock" class="cart-total" style="display:none;">
+            <span class="old-price" id="oldTotalPrice">0</span>
+            <span id="totalPrice">0</span> ₽
+            <span class="discount-badge" id="discountBadge" style="display:none;">−20%</span>
+        </div>
+
+        <div class="order-form" id="orderForm">
+            <h3>📋 Оформление заказа</h3>
+            <div class="form-group">
+                <label for="orderEmail">Email *</label>
+                <input type="email" id="orderEmail" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label for="orderPhone">Телефон *</label>
+                <input type="tel" id="orderPhone" placeholder="+7 (999) 123-45-67">
+            </div>
+            <div class="form-group">
+                <label for="orderBirthday">Дата рождения *</label>
+                <input type="date" id="orderBirthday">
+                <div class="hint">⚠️ Товар доступен только для лиц старше 18 лет</div>
+            </div>
+            <button class="btn" id="orderSubmitBtn">✅ Оформить заказ</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="logo" style="color:#b6cdc2;">Bio<span style="color:#7cb342;">Vita</span></div>
+        <div class="footer-center">
+            <a href="#products">Комплексы</a>
+            <a href="#science">Наука</a>
+            <a href="#about">О нас</a>
+            <a href="#calc">Калькулятор</a>
+        </div>
+        <div style="font-size:14px;">© 2026 — биоактивные комплексы</div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    // ===== КОРЗИНА =====
+    let cart = [];
+    let discountActive = false;
+
+    const cartCount = document.getElementById('cartCount');
+    const cartModal = document.getElementById('cartModal');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartTotalBlock = document.getElementById('cartTotalBlock');
+    const totalPrice = document.getElementById('totalPrice');
+    const oldTotalPrice = document.getElementById('oldTotalPrice');
+    const discountBlock = document.getElementById('discountBlock');
+    const discountAmount = document.getElementById('discountAmount');
+    const discountBadge = document.getElementById('discountBadge');
+    const cartOpenBtn = document.getElementById('cartOpenBtn');
+    const cartCloseBtn = document.getElementById('cartCloseBtn');
+    const applyDiscountBtn = document.getElementById('applyDiscountBtn');
+
+    function getTotal() {
+        return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    }
+
+    function renderCart() {
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCount.textContent = totalQty;
+
+        if (cart.length === 0) {
+            cartItemsList.innerHTML = '<div class="empty-cart">Корзина пуста. Добавьте товары!</div>';
+            cartTotalBlock.style.display = 'none';
+            discountBlock.style.display = 'none';
+            return;
+        }
+
+        let html = '';
+        cart.forEach((item, index) => {
+            const subtotal = item.price * item.qty;
+            html += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <span class="cart-item-name">${item.name} × ${item.qty}</span>
+                        <span class="cart-item-price">${subtotal.toLocaleString()} ₽</span>
+                    </div>
+                    <button class="cart-item-remove" data-index="${index}">Удалить</button>
+                </div>
+            `;
+        });
+        cartItemsList.innerHTML = html;
+
+        // Расчёт со скидкой
+        const subtotal = getTotal();
+        const discount = discountActive ? Math.round(subtotal * 0.2) : 0;
+        const finalTotal = subtotal - discount;
+
+        oldTotalPrice.textContent = subtotal.toLocaleString();
+        totalPrice.textContent = finalTotal.toLocaleString();
+
+        if (discountActive && discount > 0) {
+            discountBlock.style.display = 'block';
+            discountAmount.textContent = discount.toLocaleString();
+            discountBadge.style.display = 'inline-block';
+            oldTotalPrice.style.display = 'inline';
+        } else {
+            discountBlock.style.display = 'none';
+            discountBadge.style.display = 'none';
+            oldTotalPrice.style.display = 'none';
+        }
+
+        cartTotalBlock.style.display = 'block';
+
+        // Удаление товаров
+        document.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const idx = parseInt(this.dataset.index);
+                cart.splice(idx, 1);
+                renderCart();
+            });
+        });
+    }
+
+    function addToCart(id, name, price) {
+        const existing = cart.find(item => item.id === id);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ id: id, name: name, price: price, qty: 1 });
+        }
+        renderCart();
+        showNotification(`✅ ${name} добавлен в корзину`);
+    }
+
+    // Кнопки "Добавить в корзину"
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const id = parseInt(this.dataset.id);
+            const name = this.dataset.name;
+            const price = parseInt(this.dataset.price);
+            addToCart(id, name, price);
+        });
+    });
+
+    // Применить скидку
+    applyDiscountBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+            showNotification('⚠️ Сначала добавьте товары в корзину');
+            return;
+        }
+        if (discountActive) {
+            discountActive = false;
+            showNotification('❌ Скидка отменена');
+        } else {
+            discountActive = true;
+            showNotification('🎯 Скидка 20% применена!');
+        }
+        renderCart();
+    });
+
+    // Открытие/закрытие модалки
+    cartOpenBtn.addEventListener('click', function() {
+        cartModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    cartCloseBtn.addEventListener('click', function() {
+        cartModal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    cartModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            cartModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    function showNotification(msg) {
+        const old = document.querySelector('.toast-notification');
+        if (old) old.remove();
+
+        const div = document.createElement('div');
+        div.className = 'toast-notification';
+        div.textContent = msg;
+        document.body.appendChild(div);
+
+        setTimeout(() => {
+            div.style.opacity = '0';
+            div.style.transition = 'opacity 0.4s';
+            setTimeout(() => div.remove(), 400);
+        }, 2500);
+    }
+
+    // ===== ФОРМА ЗАКАЗА =====
+    document.getElementById('orderSubmitBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('orderEmail').value.trim();
+        const phone = document.getElementById('orderPhone').value.trim();
+        const birthday = document.getElementById('orderBirthday').value;
+
+        if (!email || !phone || !birthday) {
+            alert('⚠️ Пожалуйста, заполните все поля формы.');
+            return;
+        }
+
+        if (!email.includes('@') || !email.includes('.')) {
+            alert('⚠️ Введите корректный email.');
+            return;
+        }
+
+        if (phone.length < 10) {
+            alert('⚠️ Введите корректный номер телефона.');
+            return;
+        }
+
+        const birthDate = new Date(birthday);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+
+        if (age < 18) {
+            alert('⛔ Извините, товар доступен только для лиц старше 18 лет.');
+            return;
+        }
+
+        if (cart.length === 0) {
+            alert('⚠️ Ваша корзина пуста. Добавьте товары для заказа.');
+            return;
+        }
+
+        const subtotal = getTotal();
+        const discount = discountActive ? Math.round(subtotal * 0.2) : 0;
+        const finalTotal = subtotal - discount;
+
+        const itemsList = cart.map(item => `${item.name} × ${item.qty}`).join(', ');
+        alert(`🎉 Заказ оформлен!\n\nТовары: ${itemsList}\nСумма: ${subtotal.toLocaleString()} ₽\nСкидка: ${discount.toLocaleString()} ₽\nИтого: ${finalTotal.toLocaleString()} ₽\n\nEmail: ${email}\nТелефон: ${phone}\nДата рождения: ${birthday}\n\nСпасибо! Наш менеджер свяжется с вами.`);
+
+        cart = [];
+        discountActive = false;
+        renderCart();
+        cartModal.classList.remove('active');
+        document.body.style.overflow = '';
+
+        document.getElementById('orderEmail').value = '';
+        document.getElementById('orderPhone').value = '';
+        document.getElementById('orderBirthday').value = '';
+    });
+
+    // ===== ТАЙМЕР =====
+    let totalSeconds = 24 * 3600;
+    function updateTimer() {
+        if (totalSeconds <= 0) totalSeconds = 24 * 3600;
+        const h = Math.floor(totalSeconds / 3600);
+        const m = Math.floor((totalSeconds % 3600) / 60);
+        const s = totalSeconds % 60;
+        document.getElementById('hours').textContent = String(h).padStart(2,'0');
+        document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+        document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+        totalSeconds--;
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // ===== КАЛЬКУЛЯТОР =====
+    document.getElementById('calcBtn').addEventListener('click', function() {
+        const age = parseInt(document.getElementById('ageInput').value) || 30;
+        const activity = document.getElementById('activitySelect').value;
+        const goal = document.getElementById('goalSelect').value;
+
+        let product = '';
+        let extra = '';
+
+        if (goal === 'energy') {
+            if (activity === 'high') product = 'Energy+ (усиленная формула)';
+            else if (age > 50) product = 'Energy+ с коэнзимом Q10';
+            else product = 'Energy+';
+            extra = 'для бодрости и метаболизма.';
+        } else if (goal === 'immuno') {
+            if (age > 45 || activity === 'high') product = 'Immuno Shield Pro (с двойной дозой D3)';
+            else product = 'Immuno Shield';
+            extra = 'для крепкого иммунитета.';
+        } else if (goal === 'brain') {
+            if (age > 40) product = 'Neuro Focus + магний';
+            else product = 'Neuro Focus';
+            extra = 'для ясности ума и памяти.';
+        } else if (goal === 'joints') {
+            if (activity === 'high') product = 'Joint Pro (усиленная формула)';
+            else product = 'Joint Pro';
+            extra = 'для здоровья суставов и связок.';
+        } else if (goal === 'cardio') {
+            if (age > 50) product = 'Cardio Support + коэнзим Q10';
+            else product = 'Cardio Support';
+            extra = 'для здоровья сердца и сосудов.';
+        } else if (goal === 'sleep') {
+            if (activity === 'high') product = 'Sleep & Relax + магний';
+            else product = 'Sleep & Relax';
+            extra = 'для глубокого сна и восстановления.';
+        }
+
+        if (age < 25 && activity === 'high' && goal === 'energy') {
+            product = 'Energy+ (активный)';
+            extra = 'для восстановления после нагрузок.';
+        }
+
+        if (age > 60 && goal === 'joints') {
+            product = 'Joint Pro + Омега-3';
+            extra = 'для комплексной поддержки суставов в зрелом возрасте.';
+        }
+
+        if (age > 55 && goal === 'cardio') {
+            product = 'Cardio Support (усиленная формула)';
+            extra = 'для сердечно-сосудистой системы в зрелом возрасте.';
+        }
+
+        document.getElementById('calcResult').innerHTML = `🧪 Рекомендуем: <strong>${product}</strong> — ${extra}`;
+    });
+
+    // ===== ПЛАВНЫЙ СКРОЛЛ =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    renderCart();
+})();
+</script>
+</body>
+</html>
